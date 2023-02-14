@@ -1,0 +1,6 @@
+Number of Boards Solved: 400
+Runtime Statistics:
+Min Solution Time: 0.0028769969940185547
+Max Solution Time: 17.67146396636963
+Mean Solution Time: 0.8619168281555176
+Standard Deviation: 1.6139033570247894
