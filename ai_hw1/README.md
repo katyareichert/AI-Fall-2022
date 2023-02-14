@@ -10,24 +10,17 @@ on the grid, with the empty space in the top left position.
 
 ### Solved Puzzle:
 
-0	1	2
-
-3	4	5
-
-6	7	8
-
+![IMG_0443E1B12DD2-1](https://user-images.githubusercontent.com/98239413/218753889-4507a410-9cf8-4c80-abb1-ac6e769c2e67.jpeg)
 
 Each move is executed by swapping a tile with the empty space to eventually
 resolve the scrambled puzzle.
 
 ### Sample Move:
 
-0	1	2	-->	*1*	*0*	 2
+Note that the moves are identified by the direction the *empty tile* moves, 
+as this is simpler than tracking which pictured tile is being moved each time.
 
-3	4	5	-->	 3	 4	 5
-
-6	7	8	-->	 6	 7	 8
-
+![IMG_1316](https://user-images.githubusercontent.com/98239413/218755129-d51af555-1473-46f2-a8fb-b8a4adc14839.jpg)
  
 This assignment had us design puzzle.py such that implements 3 types of search:
 breadth-first, depth-first, and A-star to solve the puzzles. It outputs the
