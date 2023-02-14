@@ -11,7 +11,9 @@ on the grid, with the empty space in the top left position.
 ### Solved Puzzle:
 
 0	1	2
+
 3	4	5
+
 6	7	8
 
 
@@ -21,7 +23,9 @@ resolve the scrambled puzzle.
 ### Sample Move:
 
 0	1	2	-->	*1*	*0*	 2
+
 3	4	5	-->	 3	 4	 5
+
 6	7	8	-->	 6	 7	 8
 
  
