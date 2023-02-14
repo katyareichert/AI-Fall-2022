@@ -19,7 +19,7 @@ subgroupsROW ={"A":["A","B","C"], "B": ["A","B","C"], "C": ["A","B","C"], "D":["
 subgroupsCOL ={"1":["1","2","3"], "2": ["1","2","3"], "3": ["1","2","3"], "4":["4","5","6"], "5":["4","5","6"], "6":["4","5","6"],
                "7": ["7","8","9"], "8": ["7","8","9"], "9": ["7","8","9"]}
                
-
+toolbar_width = 40
 
 row_item_count = defaultdict(int)
 col_item_count = defaultdict(int)
@@ -171,7 +171,7 @@ if __name__ == '__main__':
         # Running sudoku solver for boards in sudokus_start.txt $python3 sudoku.py
 
         #  Read boards from source.
-        src_filename = 'sudokus_start.txt'
+        src_filename = 'src_files/sudokus_start.txt'
         try:
             srcfile = open(src_filename, "r")
             sudoku_list = srcfile.read()
@@ -183,8 +183,15 @@ if __name__ == '__main__':
         out_filename = 'output.txt'
         outfile = open(out_filename, "w")
 
+        # Setup progress bar
+        print("Progress: (every - is 10 puzzles)")
+        toolbar_width = int(len(sudoku_list.split("\n"))/10)
+        sys.stdout.write("[%s]" % (" " * toolbar_width))
+        sys.stdout.flush()
+        sys.stdout.write("\b" * (toolbar_width+1)) # return to start of line, after '['
+
         # Solve each board using backtracking
-        for line in sudoku_list.split("\n"):
+        for index, line in enumerate(sudoku_list.split("\n")):
             start = 0
             end = 0
 
@@ -226,9 +233,14 @@ if __name__ == '__main__':
             outfile.write(board_to_string(solved_board))
             outfile.write('\n')
 
+            # Update progress bar
+            if index%10 == 0:
+              sys.stdout.write("-")
+            sys.stdout.flush()
+
         #print("Finishing all boards in file.")
 
-        o_filename = 'README.txt'
+        o_filename = 'src_files/output_stats.txt'
         ofile = open(o_filename, "w")
         ofile.write("Number of Boards Solved: " + str(number_solved)+"\n")
         ofile.write("Runtime Statistics:\n")
